@@ -11,8 +11,6 @@ public class POSSystem {
         String pName;
         float pPrice;
         int quan;
-
-        // Lists to hold products, prices, and stocks
         ArrayList<String> productNames = new ArrayList<>();
         ArrayList<Float> productPrices = new ArrayList<>();
         ArrayList<Integer> productStocks = new ArrayList<>();
@@ -21,18 +19,15 @@ public class POSSystem {
             System.out.println("POS Menu: 1. Admin 2. Customer 0. Exit");
             System.out.print("Enter your choice: ");
             choice = scn.nextInt();
-            scn.nextLine(); // Consume newline
-
+            scn.nextLine(); 
             if (choice == 1) {
-                // Admin Menu
-                while (true) {
+                    while (true) {
                     System.out.println("\nWelcome Admin");
                     System.out.println("POS Admin Menu:");
                     System.out.println("1. Add Product");
                     System.out.println("2. Update Price");
                     System.out.println("3. Update Stock");
-                    System.out.println("4. View Sales Report");
-                    System.out.println("5. Manage Users");
+                    System.out.println("4. View Produc list Report");
                     System.out.println("0. Back to Main Menu");
                     System.out.print("Enter your choice: ");
                     adchoice = scn.nextInt();
@@ -61,7 +56,7 @@ public class POSSystem {
                             System.out.println("Updating product price...");
                            
                             for (int i = 0; i < productNames.size(); i++) {
-                                System.out.println((i + 1) + ". " + productNames.get(i) + " ($)2" + productPrices.get(i) );
+                                System.out.println((i + 1) + ". " + productNames.get(i) + " ($)" + productPrices.get(i) );
                             }
                             System.out.print("Enter product number to update price: ");
                             int productIndexPrice = scn.nextInt() - 1; 
@@ -97,16 +92,11 @@ public class POSSystem {
                         case 4:
                             System.out.println("sales report Logic not yet implemented ...");
                             System.out.println("Total sales breakdown: ");
-                             float totalSales = 0;
-
+                                for (int i = 0; i < productNames.size(); i++) {
+                                System.out.println((i + 1) + ". " + productNames.get(i) + " ($" + productPrices.get(i) + ") - Quantity: " + productStocks.get(i));
+                            }
                                   break;
                             
-                                                    
-
-                        case 5:
-                            System.out.println("Managing users...");
-                                                       break;
-
                         case 0:
                             System.out.println("Returning to main menu...");
                             break;
